@@ -2,22 +2,25 @@ package com.DTO.TiendaVirtualSB;
 
 public class ClienteVO {
 	
-	 private Integer idCliente;
+	 private Integer cedula;
 	 private String nombreCliente;
-	 private String apellidoCliente;
+	 private String correo;
+	 private String usuario;
+	 private String contrasena;
+
 	 
 	 /**
-	  * @return the idCliente
+	  * @return the cedula
 	  */
-	 public Integer getIdCliente() {
-	  return idCliente;
+	 public Integer getCedula() {
+	  return cedula;
 	 }
 	 
 	 /**
-	  * @param idCliente the idCliente to set
+	  * @param cedula 
 	  */
-	 public void setIdCliente(Integer idCliente) {
-	  this.idCliente = idCliente;
+	 public void setCedula(Integer cedula) {
+	  this.cedula = cedula;
 	 }
 	 
 	 
@@ -36,17 +39,41 @@ public class ClienteVO {
 	 
 	 
 	 /**
+	  * @return the correo
+	  */
+	 public String getCorreo() {
+	  return correo;
+	 }
+	 /**
+	  * @param correo
+	  */
+	 public void setCorreo (String correo) {
+	  this.correo = correo;
+	 }
+	 
+	 /**
+	  * @return the usuario
+	  */
+	 public String getUsuario() {
+	  return usuario;
+	 }
+	 /**
+	  * @param usuario
+	  */
+	 public void setUsuario (String usuario) {
+	  this.usuario = usuario;
+	 }
+	 /**
 	  * @return the nombreCliente
 	  */
-	 public String getApellidoCliente() {
-	  return apellidoCliente;
+	 public String getContrasena() {
+	  return contrasena;
 	 }
 	 /**
 	  * @param nombreCliente the nombreCliente to set
 	  */
-	 public void setApellidoCliente(String nombreCliente) {
-	  this.apellidoCliente = nombreCliente;
+	 public void setContrasena (String contrasena) {
+	  this.contrasena = contrasena;
 	 }
-	 
 
 }

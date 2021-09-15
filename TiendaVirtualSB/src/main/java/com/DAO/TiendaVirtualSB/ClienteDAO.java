@@ -30,8 +30,8 @@ public void modificarPersona(ClienteVO persona) {
         estatuto.executeUpdate(
                 "UPDATE cliente " + 
                 " SET nombre ='"+persona.getNombreCliente()+"', "+
-                " apellido ='" + persona.getApellidoCliente()+"' "+
-                "WHERE idcliente=" + persona.getIdCliente()
+                " correo ='" + persona.getCorreo()+"' "+
+                "WHERE cedula=" + persona.getCedula()
                 );
         /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
                 JOptionPane.INFORMATION_MESSAGE);*/
@@ -48,8 +48,8 @@ public void modificarPersona(ClienteVO persona) {
   Conexion conex= new Conexion();
   try {
    Statement estatuto = conex.getConnection().createStatement();
-   estatuto.executeUpdate("INSERT INTO cliente VALUES ('"+persona.getIdCliente()+"', '"
-     +persona.getNombreCliente()+"', '"+persona.getApellidoCliente()+"')");
+   estatuto.executeUpdate("INSERT INTO cliente VALUES ('"+persona.getCedula()+"', '"
+     +persona.getNombreCliente()+"', '"+persona.getCorreo()+"','"+persona.getUsuario()+"','"+persona.getContrasena()+"')");
    /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
    estatuto.close();
    conex.desconectar();
@@ -78,9 +78,9 @@ public ArrayList<ClienteVO> consultarPersona(int documento) {
    
   if(res.next()){
     ClienteVO persona= new ClienteVO();
-    persona.setIdCliente(Integer.parseInt(res.getString("idcliente")));
+    persona.setCedula(Integer.parseInt(res.getString("cedula")));
     persona.setNombreCliente(res.getString("nombre"));
-    persona.setApellidoCliente(res.getString("apellido"));
+    persona.setCorreo(res.getString("correo"));
  
     miCliente.add(persona);
           }
@@ -109,9 +109,9 @@ public ArrayList< ClienteVO> listaDePersonas() {
    ResultSet res = consulta.executeQuery();
    while(res.next()){
     ClienteVO persona= new ClienteVO();
-    persona.setIdCliente(Integer.parseInt(res.getString("idcliente")));
+    persona.setCedula(Integer.parseInt(res.getString("cedula")));
     persona.setNombreCliente(res.getString("nombre"));
-    persona.setApellidoCliente(res.getString("apellido"));
+    persona.setCorreo(res.getString("correo"));
   
     miCliente.add(persona);
           }

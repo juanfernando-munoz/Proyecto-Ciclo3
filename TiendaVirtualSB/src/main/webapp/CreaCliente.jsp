@@ -9,9 +9,12 @@
 <% 
     ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
-    int id=Integer.parseInt(request.getParameter("idcliente"));
+    int cedula=Integer.parseInt(request.getParameter("cedula"));
     cli.setNombreCliente(request.getParameter("nombre"));
-    cli.setIdCliente(id);    cli.setApellidoCliente(request.getParameter("apellido"));
+    cli.setCedula(cedula);    
+    cli.setCorreo(request.getParameter("correo"));
+    cli.setUsuario(request.getParameter("usuario"));
+    cli.setContrasena(request.getParameter("contrasena"));
     cc.registrarPersona(cli);
 %>
 <head>
@@ -21,16 +24,24 @@
     <h1>Using GET Method to Read Form Data</h1>
     <ul>
         <li><p>
-                <b>Id:</b>
-                <%= request.getParameter("idcliente")%>
+                <b>Cedula:</b>
+                <%= request.getParameter("cedula")%>
             </p></li>
         <li><p>
                 <b>Nombre:</b>
                 <%= request.getParameter("nombre")%>
             </p></li>
         <li><p>
-                <b>Apellido:</b>
-                <%= request.getParameter("apellido")%>
+                <b>Correo:</b>
+                <%= request.getParameter("correo")%>
+            </p></li>
+        <li><p>
+                <b>Usuario:</b>
+                <%= request.getParameter("usuario")%>
+            </p></li>
+        <li><p>
+                <b>Contrasena:</b>
+                <%= request.getParameter("contrasena")%>
             </p></li>
     </ul>
 </body>
