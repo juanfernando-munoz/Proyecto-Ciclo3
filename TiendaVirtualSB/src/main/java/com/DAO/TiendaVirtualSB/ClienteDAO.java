@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import com.BO.TiendaVirtualSB.*;
 import com.DTO.TiendaVirtualSB.ClienteVO;
+import com.sun.jdi.connect.spi.Connection;
 
 
 /**
@@ -15,14 +16,48 @@ import com.DTO.TiendaVirtualSB.ClienteVO;
  * 
  *
  */
-public class ClienteDAO 
+public class ClienteDAO
 {
-
+	
+/**
+  * Permite Validar login
+  * @param persona
+ * @return 
+  */
+public int Validar (ClienteVO persona) {
+	java.sql.Connection con;
+    Conexion conex = new Conexion();
+    PreparedStatement ps;
+    ResultSet rs;
+    int r=0;
+    String sql="Select * from persona where usuario=? and contrasena=?";
+    try {
+    	con=conex.getConnection();
+        ps=con.prepareStatement(sql);
+        ps.setString(1, persona.getUsuario());
+        ps.setString(2, persona.getContrasena());
+    	rs=ps.executeQuery();
+    	while(rs.next()) {
+    		r=r+1;
+    		persona.setUsuario(rs.getString("usuario"));
+    		persona.setContrasena(rs.getString("password"));
+    	}
+    	if(r==1) {
+    		return 1;
+    	}else {
+    		return 0;
+    	}
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+        return 0;
+    }
+}
+	
+	
  /**
-  * Permite registrar un Cliente nuevo
+  * Permite Modificar un Cliente
   * @param persona
   */
-
 public void modificarPersona(ClienteVO persona) {
     Conexion conex = new Conexion();
     try {
@@ -41,8 +76,12 @@ public void modificarPersona(ClienteVO persona) {
         System.out.println(e.getMessage());
         //JOptionPane.showMessageDialog(null, "No se Registro la persona");
     }
-}	
+}
 
+/**
+ * Permite registrar un Cliente nuevo
+ * @param persona
+ */
  public void registrarPersona(ClienteVO persona) 
  {
   Conexion conex= new Conexion();
