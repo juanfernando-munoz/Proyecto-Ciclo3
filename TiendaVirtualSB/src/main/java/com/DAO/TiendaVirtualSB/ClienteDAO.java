@@ -163,5 +163,25 @@ public ArrayList< ClienteVO> listaDePersonas() {
   }
   return miCliente;
  }
+public void registrarUsuario(ClienteVO persona) 
+{
+ Conexion conex= new Conexion();
+ try {
+  Statement estatuto = conex.getConnection().createStatement();
+  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getcedulaUsuario()+"', '"
+    +persona.getnombreUsuario()+"', '"+persona.getCorreoUsuario()+"','"+persona.getUsuarioUsuario()+"','"+persona.getContrasenaUsuario()+"')");
+  /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
+  estatuto.close();
+  conex.desconectar();
+  
+ } catch (SQLException e) {
+           //System.out.println(e.getMessage());
+  /*JOptionPane.showMessageDialog(null, "No se Registro la persona");*/
+ }
+}
+
+
+
+
 
 }

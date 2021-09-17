@@ -42,8 +42,8 @@ public class ClienteController {
 		if (accion.equals("Aceptar")){
 			String nom=request.getParameter("uname");
 			String pass=request.getParameter("psw");
-			p.setUsuario(nom);
-			p.setContrasena(pass);
+			p.setUsuarioUsuario(nom);
+			p.setContrasenaUsuario(pass);
 			r=Dao.Validar(p);
 			if(r==1) {
 				request.getRequestDispatcher("Clientes.html").forward(request, response);
