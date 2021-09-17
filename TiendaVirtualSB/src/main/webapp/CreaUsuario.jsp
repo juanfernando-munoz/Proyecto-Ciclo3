@@ -9,13 +9,13 @@
 <% 
     ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
-    int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setNombreCliente(request.getParameter("nombre"));
-    cli.setCedula(cedula);    
-    cli.setCorreo(request.getParameter("correo"));
-    cli.setUsuario(request.getParameter("usuario"));
-    cli.setContrasena(request.getParameter("contrasena"));
-    cc.registrarPersona(cli);
+    int cedula=Integer.parseInt(request.getParameter("cedula_usuario"));
+    cli.setNombreUsuario(request.getParameter("nombre_usuario"));
+    cli.setCedulaUsuario(cedula);    
+    cli.setCorreoUsuario(request.getParameter("email_usuario"));
+    cli.setUsuarioUsuario(request.getParameter("usuario"));
+    cli.setContrasenaUsuario(request.getParameter("password"));
+    cc.registrarUsuario(cli);
 %>
 <head>
 <title>Page Redirection</title>
@@ -25,15 +25,15 @@
     <ul>
         <li><p>
                 <b>Cedula:</b>
-                <%= request.getParameter("cedula")%>
+                <%= request.getParameter("cedula_usuario")%>
             </p></li>
         <li><p>
                 <b>Nombre:</b>
-                <%= request.getParameter("nombre")%>
+                <%= request.getParameter("nombre_usuario")%>
             </p></li>
         <li><p>
                 <b>Correo:</b>
-                <%= request.getParameter("correo")%>
+                <%= request.getParameter("email_usuario")%>
             </p></li>
         <li><p>
                 <b>Usuario:</b>
@@ -41,7 +41,7 @@
             </p></li>
         <li><p>
                 <b>Contrasena:</b>
-                <%= request.getParameter("contrasena")%>
+                <%= request.getParameter("password")%>
             </p></li>
     </ul>
 </body>
