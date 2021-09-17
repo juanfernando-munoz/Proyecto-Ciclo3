@@ -34,13 +34,13 @@ public int Validar (ClienteVO persona) {
     try {
     	con=conex.getConnection();
         ps=con.prepareStatement(sql);
-        ps.setString(1, persona.getUsuarioUsuario());
-        ps.setString(2, persona.getContrasenaUsuario());
+        ps.setString(1, persona.getUsuarioCliente());
+        ps.setString(2, persona.getContrasenaCliente());
     	rs=ps.executeQuery();
     	while(rs.next()) {
     		r=r+1;
-    		persona.setUsuarioUsuario(rs.getString("usuario"));
-    		persona.setContrasenaUsuario(rs.getString("password"));
+    		persona.setUsuarioCliente(rs.getString("usuario"));
+    		persona.setContrasenaCliente(rs.getString("password"));
     	}
     	if(r==1) {
     		return 1;
@@ -65,8 +65,8 @@ public void modificarPersona(ClienteVO persona) {
         estatuto.executeUpdate(
                 "UPDATE cliente " + 
                 " SET nombre ='"+persona.getNombreCliente()+"', "+
-                " correo ='" + persona.getCorreo()+"' "+
-                "WHERE cedula=" + persona.getCedula()
+                " correo ='" + persona.getCorreoCliente()+"' "+
+                "WHERE cedula=" + persona.getCedulaCliente()
                 );
         /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
                 JOptionPane.INFORMATION_MESSAGE);*/
@@ -164,13 +164,13 @@ public ArrayList< ClienteVO> listaDePersonas() {
   return miCliente;
  }
 
-public void registrarUsuario(ClienteVO persona) 
+public void registrarUsuario(ClienteVO usuarios) 
 {
  Conexion conex= new Conexion();
  try {
   Statement estatuto = conex.getConnection().createStatement();
-  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getCedulaUsuario()+"', '"
-    +persona.getNombreUsuario()+"', '"+persona.getCorreoUsuario()+"','"+persona.getUsuarioUsuario()+"','"+persona.getContrasenaUsuario()+"')");
+  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+usuarios.getCedulaUsuario()+"', '"
+    +usuarios.getNombreUsuario()+"', '"+usuarios.getCorreoUsuario()+"','"+usuarios.getUsuarioUsuario()+"','"+usuarios.getContrasenaUsuario()+"')");
   /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
   estatuto.close();
   conex.desconectar();

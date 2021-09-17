@@ -16,19 +16,10 @@ import com.DAO.TiendaVirtualSB.ClienteDAO;
 import com.DTO.TiendaVirtualSB.ClienteVO;
 import com.fasterxml.jackson.databind.JsonNode;
 
-
-
+	
 @RestController
 public class ClienteController {
 	
-	
-	@RequestMapping("/registrarUsuario")
-	public void registrarUsuario(ClienteVO persona) 
-	 {
-		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.registrarUsuario(persona);
-
-	 }
 	@RequestMapping("/registrarPersona")
 	public void registrarPersona(ClienteVO persona) 
 	 {
@@ -36,6 +27,13 @@ public class ClienteController {
 	    Dao.registrarPersona(persona);
 
 	 }   
+	
+	@RequestMapping("/registrarUsuario")
+	public void registrarUsuario(ClienteVO usuarios) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.registrarUsuario(usuarios);
+}  
 	
 	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
@@ -48,8 +46,8 @@ public class ClienteController {
 		if (accion.equals("Aceptar")){
 			String nom=request.getParameter("uname");
 			String pass=request.getParameter("psw");
-			p.setUsuarioUsuario(nom);
-			p.setContrasenaUsuario(pass);
+			p.setUsuarioCliente(nom);
+			p.setContrasenaCliente(pass);
 			r=Dao.Validar(p);
 			if(r==1) {
 				request.getRequestDispatcher("Clientes.html").forward(request, response);
