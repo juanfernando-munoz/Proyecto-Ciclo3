@@ -27,14 +27,14 @@ public class ClienteController {
 	    Dao.registrarPersona(persona);
 
 	 }   
-	
-	@RequestMapping("/registrarUsuario")
-	public void registrarUsuario(ClienteVO usuarios) 
+	@RequestMapping("/registrarPersona")
+	public void registrarUsuario(ClienteVO persona) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.registrarUsuario(usuarios);
-}  
-	
+	    Dao.registrarUsuario(persona);
+
+	 }   
+		
 	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 		

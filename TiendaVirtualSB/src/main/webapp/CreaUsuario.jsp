@@ -8,15 +8,15 @@
 %>
 <html>
 <% 
-    UsuarioController uc=new UsuarioController();
-    UsuarioVO cli=new UsuarioVO();
+    ClienteController cc=new ClienteController();
+    ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
     cli.setNombreUsuario(request.getParameter("nombre"));
     cli.setCedulaUsuario(cedula);    
     cli.setCorreoUsuario(request.getParameter("correo"));
     cli.setUsuarioUsuario(request.getParameter("usuario"));
     cli.setContrasenaUsuario(request.getParameter("contrasena"));
-    uc.registrarUsuario(cli); 
+    cc.registrarUsuario(cli); 
 %>
 <head>
 <title>Page Redirection</title>
