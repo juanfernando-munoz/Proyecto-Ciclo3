@@ -1,7 +1,12 @@
 package com.BO.TiendaVirtualSB;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.boot.json.JsonParser;
@@ -22,9 +27,33 @@ public class ClienteController {
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
 	    Dao.registrarPersona(persona);
-	    
+
 	 }
 	   
+	
+	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException{
+		
+		ClienteDAO Dao=new ClienteDAO(); 
+		ClienteVO p=new ClienteVO();
+	    int r;
+		response.setContentType("text/html/charset=UTF-8");
+		String accion=request.getParameter("accion");
+		if (accion.equals("Aceptar")){
+			String nom=request.getParameter("uname");
+			String pass=request.getParameter("psw");
+			p.setUsuario(nom);
+			p.setContrasena(pass);
+			r=Dao.Validar(p);
+			if(r==1) {
+				request.getRequestDispatcher("Clientes.html").forward(request, response);
+			}else {
+				request.getRequestDispatcher("login.html").forward(request, response);
+			}
+		}
+		
+	}
+	;
 	 
 	 
 	/**
