@@ -95,7 +95,7 @@ public void modificarPersona(ClienteVO persona) {
    
   } catch (SQLException e) {
             //System.out.println(e.getMessage());
-   /*JOptionPane.showMessageDialog(null, "No se Registro la persona");*/
+   /*JOptionPane.showMessageDialog(null, "No se Registro la persona"a);*/
   }
  }
  public void registrarUsuario(ClienteVO persona) 
@@ -111,7 +111,7 @@ public void modificarPersona(ClienteVO persona) {
    
   } catch (SQLException e) {
             //System.out.println(e.getMessage());
-   /*JOptionPane.showMessageDialog(null, "No se Registro la persona");*/
+   /*JOptionPane.showMessageDialog(null, "No se Registro la persona"aaaaaaaaa);*/
   }
  }
 /**
