@@ -22,20 +22,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ClienteController {
 	
 	
-	@RequestMapping("/registrarUsuario")
-	public void registrarUsuario(ClienteVO persona) 
-	 {
-		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.registrarUsuario(persona);
-
-	 }
 	@RequestMapping("/registrarPersona")
 	public void registrarPersona(ClienteVO persona) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
 	    Dao.registrarPersona(persona);
 
-	 }   
+	 }
+	   
 	
 	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
