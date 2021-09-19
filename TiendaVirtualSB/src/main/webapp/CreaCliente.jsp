@@ -11,10 +11,10 @@
     ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
     cli.setNombreCliente(request.getParameter("nombre"));
-    cli.setCedulaCliente(cedula);    
-    cli.setCorreoCliente(request.getParameter("correo"));
-    cli.setUsuarioCliente(request.getParameter("usuario"));
-    cli.setContrasenaCliente(request.getParameter("contrasena"));
+    cli.setCedula(cedula);    
+    cli.setCorreo(request.getParameter("correo"));
+    cli.setUsuario(request.getParameter("usuario"));
+    cli.setContrasena(request.getParameter("contrasena"));
     cc.registrarPersona(cli);
 %>
 <head>

@@ -7,24 +7,19 @@ public class ClienteVO {
 	 private String correoUsuario;
 	 private String usuarioUsuario;
 	 private String contrasenaUsuario;
-	 private Integer cedulaCliente;
-	 private String nombreCliente;
-	 private String correoCliente;
-	 private String usuarioCliente;
-	 private String contrasenaCliente;
 
-	 /**VARIABLES USUARIOS
+	 
 	 /**
 	  * @return the cedula
 	  */
-	 public Integer getCedulaUsuario() {
+	 public Integer getcedulaUsuario() {
 	  return cedulaUsuario;
 	 }
 	 
 	 /**
 	  * @param cedula 
 	  */
-	 public void setCedulaUsuario(Integer cedulaUsuario) {
+	 public void setcedulaUsuario(Integer cedula) {
 	  this.cedulaUsuario = cedulaUsuario;
 	 }
 	 
@@ -32,13 +27,13 @@ public class ClienteVO {
 	 /**
 	  * @return the nombreCliente
 	  */
-	 public String getNombreUsuario() {
+	 public String getnombreUsuario() {
 	  return nombreUsuario;
 	 }
 	 /**
 	  * @param nombreCliente the nombreCliente to set
 	  */
-	 public void setNombreUsuario(String nombreUsuario) {
+	 public void setnombreUsuario(String nombreCliente) {
 	  this.nombreUsuario = nombreUsuario;
 	 }
 	 
@@ -52,7 +47,7 @@ public class ClienteVO {
 	 /**
 	  * @param correo
 	  */
-	 public void setCorreoUsuario (String correoUsuario) {
+	 public void setCorreoUsuario (String correo) {
 	  this.correoUsuario = correoUsuario;
 	 }
 	 
@@ -65,8 +60,8 @@ public class ClienteVO {
 	 /**
 	  * @param usuario
 	  */
-	 public void setUsuarioUsuario (String usuarioUsuario) {
-	  this.usuarioUsuario= usuarioUsuario;
+	 public void setUsuarioUsuario (String usuario) {
+	  this.usuarioUsuario = usuarioUsuario;
 	 }
 	 /**
 	  * @return the contrasenaUsuario
@@ -77,76 +72,8 @@ public class ClienteVO {
 	 /**
 	  * @param nombreCliente the nombreCliente to set
 	  */
-	 public void setContrasenaUsuario (String contrasenaUsuario) {
+	 public void setContrasenaUsuario (String contrasena) {
 	  this.contrasenaUsuario = contrasenaUsuario;
 	 }
-	 /*VARIABLES CLIENTES*/
-	 /**
-	  * @return the cedula
-	  */
-	 public Integer getCedulaCliente() {
-	  return cedulaCliente;
-	 }
-	 
-	 /**
-	  * @param cedula 
-	  */
-	 public void setCedulaCliente(Integer cedulaCliente) {
-	  this.cedulaCliente = cedulaCliente;
-	 }
-	 
-	 
-	 /**
-	  * @return the nombreCliente
-	  */
-	 public String getNombreCliente() {
-	  return nombreCliente;
-	 }
-	 /**
-	  * @param nombreCliente the nombreCliente to set
-	  */
-	 public void setNombreCliente(String nombreCliente) {
-	  this.nombreCliente = nombreCliente;
-	 }
-	 
-	 
-	 /**
-	  * @return the correo
-	  */
-	 public String getCorreoCliente() {
-	  return correoCliente;
-	 }
-	 /**
-	  * @param correo
-	  */
-	 public void setCorreoCliente (String correoCliente) {
-	  this.correoCliente = correoCliente;
-	 }
-	 
-	 /**
-	  * @return the usuario
-	  */
-	 public String getUsuarioCliente() {
-	  return usuarioCliente;
-	 }
-	 /**
-	  * @param usuario
-	  */
-	 public void setUsuarioCliente (String usuarioCliente) {
-	  this.usuarioCliente = usuarioCliente;
-	 }
-	 /**
-	  * @return the contrasenaUsuario
-	  */
-	 public String getContrasenaCliente() {
-	  return contrasenaCliente;
-	 }
-	 /**
-	  * @param nombreCliente the nombreCliente to set
-	  */
-	 public void setContrasenaCliente (String contrasenaCliente) {
-	  this.contrasenaCliente = contrasenaCliente;
-	 }
-	 
-	 
+
 }

@@ -34,13 +34,13 @@ public int Validar (ClienteVO persona) {
     try {
     	con=conex.getConnection();
         ps=con.prepareStatement(sql);
-        ps.setString(1, persona.getUsuarioUsuario());
-        ps.setString(2, persona.getContrasenaUsuario());
+        ps.setString(1, persona.getUsuario());
+        ps.setString(2, persona.getContrasena());
     	rs=ps.executeQuery();
     	while(rs.next()) {
     		r=r+1;
-    		persona.setUsuarioUsuario(rs.getString("usuario"));
-    		persona.setContrasenaUsuario(rs.getString("password"));
+    		persona.setUsuario(rs.getString("usuario"));
+    		persona.setContrasena(rs.getString("password"));
     	}
     	if(r==1) {
     		return 1;
@@ -87,8 +87,8 @@ public void modificarPersona(ClienteVO persona) {
   Conexion conex= new Conexion();
   try {
    Statement estatuto = conex.getConnection().createStatement();
-   estatuto.executeUpdate("INSERT INTO cliente VALUES ('"+persona.getCedulaCliente()+"', '"
-     +persona.getNombreCliente()+"', '"+persona.getCorreoCliente()+"','"+persona.getUsuarioCliente()+"','"+persona.getContrasenaCliente()+"')");
+   estatuto.executeUpdate("INSERT INTO cliente VALUES ('"+persona.getCedula()+"', '"
+     +persona.getNombreCliente()+"', '"+persona.getCorreo()+"','"+persona.getUsuario()+"','"+persona.getContrasena()+"')");
    /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
    estatuto.close();
    conex.desconectar();
@@ -117,9 +117,9 @@ public ArrayList<ClienteVO> consultarPersona(int documento) {
    
   if(res.next()){
     ClienteVO persona= new ClienteVO();
-    persona.setcedulaUsuario(Integer.parseInt(res.getString("cedula")));
-    persona.setnombreUsuario(res.getString("nombre"));
-    persona.setCorreoUsuario(res.getString("correo"));
+    persona.setCedula(Integer.parseInt(res.getString("cedula")));
+    persona.setNombreCliente(res.getString("nombre"));
+    persona.setCorreo(res.getString("correo"));
  
     miCliente.add(persona);
           }
@@ -163,14 +163,13 @@ public ArrayList< ClienteVO> listaDePersonas() {
   }
   return miCliente;
  }
-
 public void registrarUsuario(ClienteVO persona) 
 {
  Conexion conex= new Conexion();
  try {
   Statement estatuto = conex.getConnection().createStatement();
-  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getCedulaUsuario()+"', '"
-    +persona.getNombreUsuario()+"', '"+persona.getCorreoUsuario()+"','"+persona.getUsuarioUsuario()+"','"+persona.getContrasenaUsuario()+"')");
+  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getcedulaUsuario()+"', '"
+    +persona.getnombreUsuario()+"', '"+persona.getCorreoUsuario()+"','"+persona.getUsuarioUsuario()+"','"+persona.getContrasenaUsuario()+"')");
   /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
   estatuto.close();
   conex.desconectar();
