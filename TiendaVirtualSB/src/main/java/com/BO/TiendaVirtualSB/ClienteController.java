@@ -1,12 +1,7 @@
 package com.BO.TiendaVirtualSB;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.boot.json.JsonParser;
@@ -27,9 +22,10 @@ public class ClienteController {
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
 	    Dao.registrarPersona(persona);
-
+	    
 	 }
 	   
+<<<<<<< HEAD
 	
 	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
@@ -54,6 +50,8 @@ public class ClienteController {
 		
 	}
 	;
+=======
+>>>>>>> parent of 6b437c7 (prueba)
 	 
 	 
 	/**
