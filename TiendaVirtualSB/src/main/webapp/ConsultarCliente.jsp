@@ -1,4 +1,3 @@
-
 <%@ page
     import="
         java.io.*,
@@ -11,18 +10,18 @@
     ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setNombreUsuario(request.getParameter("nombre"));
-    cli.setCedulaUsuario(cedula);    
-    cli.setCorreoUsuario(request.getParameter("correo"));
-    cli.setUsuarioUsuario(request.getParameter("usuario"));
-    cli.setContrasenaUsuario(request.getParameter("contrasena"));
-    cc.registrarUsuario(cli); 
+    cli.setNombreCliente(request.getParameter("nombre"));
+    cli.setCedulaCliente(cedula);    
+    cli.setCorreoCliente(request.getParameter("correo"));
+    cli.setUsuarioCliente(request.getParameter("usuario"));
+    cli.setContrasenaCliente(request.getParameter("contrasena"));
+    cc.listaDePersonas(cli);
 %>
 <head>
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>REGISTRADO!</h1>
+    <h1>Cliente Agregado!</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

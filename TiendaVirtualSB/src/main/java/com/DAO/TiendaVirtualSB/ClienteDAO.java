@@ -64,8 +64,10 @@ public void modificarPersona(ClienteVO persona) {
         Statement estatuto = conex.getConnection().createStatement();
         estatuto.executeUpdate(
                 "UPDATE cliente " + 
-                " SET nombre ='"+persona.getNombreCliente()+"', "+
+                " SET nombre completo ='"+persona.getNombreCliente()+"', "+
                 " correo ='" + persona.getCorreoCliente()+"' "+
+                " usuario ='" + persona.getUsuarioCliente()+"' "+
+                " contrasena ='" + persona.getContrasenaCliente()+"' "+
                 "WHERE cedula=" + persona.getCedulaCliente()
                 );
         /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
@@ -73,7 +75,7 @@ public void modificarPersona(ClienteVO persona) {
         estatuto.close();
         conex.desconectar();
     } catch (SQLException e) {
-        System.out.println(e.getMessage());
+        //System.out.println(e.getMessage());
         //JOptionPane.showMessageDialog(null, "No se Registro la persona");
     }
 }
@@ -134,6 +136,8 @@ public ArrayList<ClienteVO> consultarPersona(int documento) {
     persona.setCedulaCliente(Integer.parseInt(res.getString("cedula")));
     persona.setNombreCliente(res.getString("nombre"));
     persona.setCorreoCliente(res.getString("correo"));
+    persona.setUsuarioCliente(res.getString("usuario"));
+    persona.setContrasenaCliente(res.getString("contrasena"));
  
     miCliente.add(persona);
           }

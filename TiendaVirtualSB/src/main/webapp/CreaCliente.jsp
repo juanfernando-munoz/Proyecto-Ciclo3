@@ -21,7 +21,7 @@
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>Using GET Method to Read Form Data</h1>
+    <h1>Cliente Agregado!</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>
