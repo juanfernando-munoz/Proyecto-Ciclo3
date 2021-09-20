@@ -64,7 +64,7 @@ public void modificarPersona(ClienteVO persona) {
         Statement estatuto = conex.getConnection().createStatement();
         estatuto.executeUpdate(
                 "UPDATE cliente " + 
-                " SET nombre completo ='"+persona.getNombreCliente()+"', "+
+                " SET nombre='"+persona.getNombreCliente()+"', "+
                 " correo ='" + persona.getCorreoCliente()+"' "+
                 " usuario ='" + persona.getUsuarioCliente()+"' "+
                 " contrasena ='" + persona.getContrasenaCliente()+"' "+
@@ -127,7 +127,7 @@ public ArrayList<ClienteVO> consultarPersona(int documento) {
   Conexion conex= new Conexion();
     
   try {
-   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM cliente where idcliente = ? ");
+   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM cliente where cedula = ? ");
    consulta.setInt(1, documento);
    ResultSet res = consulta.executeQuery();
    

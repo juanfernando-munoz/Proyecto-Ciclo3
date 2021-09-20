@@ -18,10 +18,10 @@
     cc.modificarPersona(cli);
 %>
 <head>
-<title>Page Redirection</title>
+<title>Actualizar Cliente</title>
 </head>
 <body>
-    <h1>Using GET Method to Read Form Data</h1>
+    <h1>Cliente Actualizado!</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

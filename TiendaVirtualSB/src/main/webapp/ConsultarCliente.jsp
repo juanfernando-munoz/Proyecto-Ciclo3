@@ -15,13 +15,13 @@
     cli.setCorreoCliente(request.getParameter("correo"));
     cli.setUsuarioCliente(request.getParameter("usuario"));
     cli.setContrasenaCliente(request.getParameter("contrasena"));
-    cc.listaDePersonas(cli);
+    cc.consultarPersona(cedula);
 %>
 <head>
-<title>Page Redirection</title>
+<title>Consultar Cliente</title>
 </head>
 <body>
-    <h1>Cliente Agregado!</h1>
+    <h1>Informacion del Cliente:</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>
