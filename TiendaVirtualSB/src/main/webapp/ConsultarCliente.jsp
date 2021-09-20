@@ -12,9 +12,6 @@
     int cedula=Integer.parseInt(request.getParameter("cedula"));
     cli.setNombreCliente(request.getParameter("nombre"));
     cli.setCedulaCliente(cedula);    
-    cli.setCorreoCliente(request.getParameter("correo"));
-    cli.setUsuarioCliente(request.getParameter("usuario"));
-    cli.setContrasenaCliente(request.getParameter("contrasena"));
     cc.consultarPersona(cedula);
 %>
 <head>
