@@ -10,9 +10,8 @@
     ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setNombreCliente(request.getParameter("nombre"));
     cli.setCedulaCliente(cedula);    
-    cc.consultarPersona(cedula);
+    cc.consultarPersona(cli.getCedulaCliente());
 %>
 <head>
 <title>Consultar Cliente</title>
