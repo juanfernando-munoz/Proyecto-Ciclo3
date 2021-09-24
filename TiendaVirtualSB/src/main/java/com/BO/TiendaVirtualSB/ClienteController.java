@@ -2,6 +2,7 @@ package com.BO.TiendaVirtualSB;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.boot.json.JsonParser;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.DAO.TiendaVirtualSB.ClienteDAO;
 import com.DTO.TiendaVirtualSB.ClienteVO;
+import com.DTO.TiendaVirtualSB.ProveedorVO;
+import com.DTO.TiendaVirtualSB.UsuarioVO;
 import com.fasterxml.jackson.databind.JsonNode;
 
 
@@ -16,77 +19,101 @@ import com.fasterxml.jackson.databind.JsonNode;
 @RestController
 public class ClienteController {
 	
-	
-	@RequestMapping("/registrarPersona")
-	public void registrarPersona(ClienteVO persona) 
+	// METODO VALIDACION
+	@RequestMapping("/validar")
+	public void validar(UsuarioVO persona) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.registrarPersona(persona);
+	    Dao.Validar(persona);
+	    
+	 }
+	
+	// METODOS CLIENTES
+	@RequestMapping("/registrarCliente")
+	public void registrarCliente(ClienteVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.registrarCliente(persona);
 	    
 	 }
 	   
-<<<<<<< HEAD
-	
-	public void ProcessRequest(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException{
-		
+	@RequestMapping("/modificarCliente")
+	public void modificarCliente(ClienteVO persona) 
+	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-		ClienteVO p=new ClienteVO();
-	    int r;
-		response.setContentType("text/html/charset=UTF-8");
-		String accion=request.getParameter("accion");
-		if (accion.equals("Aceptar")){
-			String nom=request.getParameter("uname");
-			String pass=request.getParameter("psw");
-			p.setUsuarioUsuario(nom);
-			p.setContrasenaUsuario(pass);
-			r=Dao.Validar(p);
-			if(r==1) {
-				request.getRequestDispatcher("Clientes.html").forward(request, response);
-			}else {
-				request.getRequestDispatcher("login.html").forward(request, response);
-			}
-		}
-		
-	}
-	;
-=======
->>>>>>> parent of 6b437c7 (prueba)
+	    Dao.modificarCliente(persona);
+	    
+	 }
+	
+	@RequestMapping("/eliminarCliente")
+	public void eliminarCliente(ClienteVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.eliminarCliente(persona);
+	    
+	 }
+
 	 
-	 
+	// METODOS USUARIOS
+	@RequestMapping("/registrarUsuario")
+	public void registrarUsuario(UsuarioVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.registrarUsuario(persona);
+	    
+	 }
+	   
+	@RequestMapping("/modificarUsuario")
+	public void modificarUsuario(UsuarioVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.modificarUsuario(persona);
+	    
+	 }
+	
+	@RequestMapping("/eliminarUsuario")
+	public void eliminarUsuario(UsuarioVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.eliminarUsuario(persona);
+	    
+	 }
+	
+	// METODOS PROVEEDOR
+	@RequestMapping("/registrarProveedor")
+	public void registrarProveedor(ProveedorVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.registrarProveedor(persona);
+	    
+	 }
+	   
+	@RequestMapping("/modificarProveedor")
+	public void modificarProveedor(ProveedorVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.modificarProveedor(persona);
+	    
+	 }
+	
+	@RequestMapping("/eliminarProveedor")
+	public void eliminarProveedor(ProveedorVO persona) 
+	 {
+		ClienteDAO Dao=new ClienteDAO(); 
+	    Dao.eliminarProveedor(persona);
+	    
+	 }
 	/**
 	 * permite consultar el Cliente asociado al documento enviado
 	 * como parametro 
 	 * @param documento 
 	 * @return
 	 */
-	
-	@RequestMapping("/consultarPersona")
-	public ArrayList<ClienteVO> consultarPersona(int documento) {
-		ClienteDAO Dao=new ClienteDAO(); 
-	return 	Dao.consultarPersona(documento);
-		
-	}
-
-
-
-	/**
-	 * permite consultar la lista de Clientes
-	 * @return
-	 */
-	@RequestMapping("/listarPersonas")
-	public ArrayList< ClienteVO> listaDePersonas() {
-		ClienteDAO Dao=new ClienteDAO(); 
-	
-		return Dao.listaDePersonas();
-		
-	}
-	@RequestMapping("/modificarPersona")
-	public void modificarPersona(ClienteVO persona) 
+	@RequestMapping("/consultarCliente")
+	public List<ClienteVO> consultarCliente(int cedulaCliente) 
 	 {
 		ClienteDAO Dao=new ClienteDAO(); 
-	    Dao.modificarPersona(persona);
+	    return Dao.consultarCliente(cedulaCliente);
 	    
 	 }
-
 }

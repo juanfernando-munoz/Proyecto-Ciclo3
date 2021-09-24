@@ -5,10 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
-import com.BO.TiendaVirtualSB.*;
 import com.DTO.TiendaVirtualSB.ClienteVO;
-import com.sun.jdi.connect.spi.Connection;
+import com.DTO.TiendaVirtualSB.ProveedorVO;
+import com.DTO.TiendaVirtualSB.UsuarioVO;
 
 
 /**
@@ -16,119 +18,198 @@ import com.sun.jdi.connect.spi.Connection;
  * 
  *
  */
-public class ClienteDAO
+public class ClienteDAO 
 {
-	
-/**
-  * Permite Validar login
-  * @param persona
- * @return 
-  */
-public int Validar (ClienteVO persona) {
-	java.sql.Connection con;
-    Conexion conex = new Conexion();
-    PreparedStatement ps;
-    ResultSet rs;
-    int r=0;
-    String sql="Select * from persona where usuario=? and contrasena=?";
-    try {
-    	con=conex.getConnection();
-        ps=con.prepareStatement(sql);
-        ps.setString(1, persona.getUsuario());
-        ps.setString(2, persona.getContrasena());
-    	rs=ps.executeQuery();
-    	while(rs.next()) {
-    		r=r+1;
-    		persona.setUsuario(rs.getString("usuario"));
-    		persona.setContrasena(rs.getString("password"));
-    	}
-    	if(r==1) {
-    		return 1;
-    	}else {
-    		return 0;
-    	}
-    } catch (SQLException e) {
-        System.out.println(e.getMessage());
-        return 0;
-    }
-}
-	
-	
- /**
-  * Permite Modificar un Cliente
-  * @param persona
-  */
-public void modificarPersona(ClienteVO persona) {
-    Conexion conex = new Conexion();
-    try {
-        Statement estatuto = conex.getConnection().createStatement();
-        estatuto.executeUpdate(
-                "UPDATE cliente " + 
-                " SET nombre ='"+persona.getNombreCliente()+"', "+
-                " correo ='" + persona.getCorreo()+"' "+
-                "WHERE cedula=" + persona.getCedula()
-                );
-        /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente", "Información",
-                JOptionPane.INFORMATION_MESSAGE);*/
-        estatuto.close();
-        conex.desconectar();
-    } catch (SQLException e) {
-        System.out.println(e.getMessage());
-        //JOptionPane.showMessageDialog(null, "No se Registro la persona");
-    }
-}
 
-/**
- * Permite registrar un Cliente nuevo
- * @param persona
- */
- public void registrarPersona(ClienteVO persona) 
+ /**
+  * Permite registrar un Cliente nuevo
+  * @param persona
+  */
+	
+// METODO VALIDACION
+	public int Validar (UsuarioVO persona) {
+		java.sql.Connection con;
+	    Conexion conex = new Conexion();
+	    PreparedStatement ps;
+	    ResultSet rs;
+	    int r=0;
+    String sql="Select * from usuarios where usuarioUsuario=? and contrasenaUsuario=?";
+	    try {
+	    	con=conex.getConnection();
+	        ps=con.prepareStatement(sql);
+	        ps.setString(1, persona.getUsuarioUsuario());
+	        ps.setString(2, persona.getContrasenaUsuario());
+	    	rs=ps.executeQuery();
+	    	while(rs.next()) {
+	    		r=r+1;
+	    		persona.setUsuarioUsuario(rs.getString("usuarioUsuario"));
+	    		persona.setContrasenaUsuario(rs.getString("contrasenaUsuario"));
+	    	}
+	    	if(r==1) {
+	    		return 1;
+	    	}else {
+	    		return 0;
+	    	}
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	        return 0;
+	    }
+	}
+	
+// METODOS CLIENTES	
+	
+ public void registrarCliente(ClienteVO persona) 
  {
   Conexion conex= new Conexion();
   try {
    Statement estatuto = conex.getConnection().createStatement();
-   estatuto.executeUpdate("INSERT INTO cliente VALUES ('"+persona.getCedula()+"', '"
-     +persona.getNombreCliente()+"', '"+persona.getCorreo()+"','"+persona.getUsuario()+"','"+persona.getContrasena()+"')");
-   /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
+   estatuto.executeUpdate("INSERT INTO clientes VALUES ('"+persona.getCedulaCliente()+"', '"
+     +persona.getDireccionCliente()+"', '"+persona.getEmailCliente()+"', '"+persona.getNombreCliente()+"', '"+persona.getTelefonoCliente()+"')");
    estatuto.close();
    conex.desconectar();
    
   } catch (SQLException e) {
-            //System.out.println(e.getMessage());
-   /*JOptionPane.showMessageDialog(null, "No se Registro la persona");*/
   }
  }
    
+ public void modificarCliente(ClienteVO persona) {
+    Conexion conex = new Conexion();
+    try {
+        Statement estatuto = conex.getConnection().createStatement();
+        estatuto.executeUpdate("update clientes set cedula_cliente='"+persona.getCedulaCliente()+"', direccion_cliente ='" + persona.getDireccionCliente()+"', email_cliente ='" + persona.getEmailCliente()+"', nombre_cliente ='" + persona.getNombreCliente()+"', telefono_cliente ='" + persona.getTelefonoCliente()+"' where cedula_cliente='" + persona.getCedulaCliente()+"'");
+        estatuto.close();
+        conex.desconectar();
+    } catch (SQLException e) {
+    }
+}
  
+ public void eliminarCliente(ClienteVO persona) 
+ {
+  Conexion conex= new Conexion();
+  try {
+   Statement estatuto = conex.getConnection().createStatement();
+   estatuto.executeUpdate("delete from clientes where cedula_cliente= '"+persona.getCedulaCliente()+"'");
+   estatuto.close();
+   conex.desconectar();
+   
+  } catch (SQLException e) {
+  }
+ }
+ 
+ 
+ // METODOS USUARIO
+ 
+ public void registrarUsuario(UsuarioVO persona) 
+ {
+  Conexion conex= new Conexion();
+  try {
+   Statement estatuto = conex.getConnection().createStatement();
+   estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getCedulaUsuario()+"', '"
+     +persona.getNombreUsuario()+"', '"+persona.getCorreoUsuario()+"', '"+persona.getNombreUsuario()+"', '"+persona.getContrasenaUsuario()+"')");
+   estatuto.close();
+   conex.desconectar();
+   
+  } catch (SQLException e) {
+  }
+ }
+   
+ public void modificarUsuario(UsuarioVO persona) {
+    Conexion conex = new Conexion();
+    try {
+        Statement estatuto = conex.getConnection().createStatement();
+        estatuto.executeUpdate("update usuarios set cedula_usuario='"+persona.getCedulaUsuario()+"', email_usuario ='" + persona.getCorreoUsuario()+"', nombre_usuario ='" + persona.getNombreUsuario()+"', contrasenaUsuario ='" + persona.getContrasenaUsuario()+"', usuarioUsuario ='" + persona.getUsuarioUsuario()+"' where cedula_usuario='" + persona.getCedulaUsuario()+"'");
+        estatuto.close();
+        conex.desconectar();
+    } catch (SQLException e) {
+    }
+}
+ 
+ public void eliminarUsuario(UsuarioVO persona) 
+ {
+  Conexion conex= new Conexion();
+  try {
+   Statement estatuto = conex.getConnection().createStatement();
+   estatuto.executeUpdate("delete from usuarios where cedula_usuario= '"+persona.getCedulaUsuario()+"'");
+   estatuto.close();
+   conex.desconectar();
+   
+  } catch (SQLException e) {
+  }
+ }
+ 
+//METODOS PROVEEDOR
+ 
+public void registrarProveedor(ProveedorVO persona) 
+{
+Conexion conex= new Conexion();
+try {
+ Statement estatuto = conex.getConnection().createStatement();
+ estatuto.executeUpdate("INSERT INTO proveedores VALUES ('"+persona.getNit()+"', '"
+   +persona.getCiudadProveedor()+"', '"+persona.getDireccionProveedor()+"', '"+persona.getNombreProveedor()+"', '"+persona.getTelefonoProveedor()+"')");
+ estatuto.close();
+ conex.desconectar();
+ 
+} catch (SQLException e) {
+}
+}
+ 
+public void modificarProveedor(ProveedorVO persona) {
+  Conexion conex = new Conexion();
+  try {
+      Statement estatuto = conex.getConnection().createStatement();
+      estatuto.executeUpdate("update proveedores set nitproveedor='"+persona.getNit()+
+    		  "', ciudad_proveedor ='" + persona.getCiudadProveedor()+
+    		  "', direccion_proveedor ='" + persona.getDireccionProveedor()+
+    		  "', nombre_proveedor ='" + persona.getNombreProveedor()+
+    		  "', telefono_proveedor ='" + persona.getTelefonoProveedor()+
+    		  "' where nitproveedor='" + persona.getNit()+"'");
+      estatuto.close();
+      conex.desconectar();
+  } catch (SQLException e) {
+  }
+}
+
+public void eliminarProveedor(ProveedorVO persona) 
+{
+Conexion conex= new Conexion();
+try {
+ Statement estatuto = conex.getConnection().createStatement();
+ estatuto.executeUpdate("delete from proveedores where nitproveedor= '"+persona.getNit()+"'");
+ estatuto.close();
+ conex.desconectar();
+ 
+} catch (SQLException e) {
+}
+}
 /**
  * permite consultar el Cliente asociado al documento enviado
  * como parametro 
  * @param documento 
  * @return
  */
-public ArrayList<ClienteVO> consultarPersona(int documento) {
-  ArrayList< ClienteVO> miCliente = new ArrayList< ClienteVO>();
+public List<ClienteVO> consultarCliente(int cedulaCliente) {
+  List< ClienteVO> miCliente = new ArrayList<ClienteVO>();
   Conexion conex= new Conexion();
     
   try {
-   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM cliente where idcliente = ? ");
-   consulta.setInt(1, documento);
+   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes where cedula_cliente = ? ");
    ResultSet res = consulta.executeQuery();
    
   if(res.next()){
     ClienteVO persona= new ClienteVO();
-    persona.setCedula(Integer.parseInt(res.getString("cedula")));
-    persona.setNombreCliente(res.getString("nombre"));
-    persona.setCorreo(res.getString("correo"));
- 
+    persona.setCedulaCliente(Integer.parseInt(res.getString("cedula_cliente")));
+    persona.setDireccionCliente(res.getString("direccion_cliente"));
+    persona.setEmailCliente(res.getString("email_cliente"));
+    persona.setNombreCliente(res.getString("nombre_cliente"));
+    persona.setTelefonoCliente(Integer.parseInt(res.getString("telefono_cliente")));
     miCliente.add(persona);
-          }
+   }
           res.close();
           consulta.close();
           conex.desconectar();
    
   } catch (Exception e) {
-   /*JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);*/
+   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
   }
   return miCliente;
  }
@@ -144,13 +225,15 @@ public ArrayList< ClienteVO> listaDePersonas() {
   Conexion conex= new Conexion();
     
   try {
-   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM cliente");
+   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes");
    ResultSet res = consulta.executeQuery();
    while(res.next()){
     ClienteVO persona= new ClienteVO();
-    persona.setCedula(Integer.parseInt(res.getString("cedula")));
-    persona.setNombreCliente(res.getString("nombre"));
-    persona.setCorreo(res.getString("correo"));
+    persona.setCedulaCliente(Integer.parseInt(res.getString("cedula_cliente")));
+    persona.setDireccionCliente(res.getString("direccion_cliente"));
+    persona.setEmailCliente(res.getString("email_cliente"));
+    persona.setNombreCliente(res.getString("nombre_cliente"));
+    persona.setTelefonoCliente(Integer.parseInt(res.getString("telefono_cliente")));
   
     miCliente.add(persona);
           }
@@ -159,29 +242,9 @@ public ArrayList< ClienteVO> listaDePersonas() {
           conex.desconectar();
    
   } catch (Exception e) {
-   /*JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);*/
+   //JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
   }
   return miCliente;
  }
-public void registrarUsuario(ClienteVO persona) 
-{
- Conexion conex= new Conexion();
- try {
-  Statement estatuto = conex.getConnection().createStatement();
-  estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getcedulaUsuario()+"', '"
-    +persona.getnombreUsuario()+"', '"+persona.getCorreoUsuario()+"','"+persona.getUsuarioUsuario()+"','"+persona.getContrasenaUsuario()+"')");
-  /*JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Información",JOptionPane.INFORMATION_MESSAGE);*/
-  estatuto.close();
-  conex.desconectar();
-  
- } catch (SQLException e) {
-           //System.out.println(e.getMessage());
-  /*JOptionPane.showMessageDialog(null, "No se Registro la persona");*/
- }
-}
-
-
-
-
 
 }
