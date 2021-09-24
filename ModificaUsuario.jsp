@@ -8,20 +8,20 @@
 <html>
 <% 
     ClienteController cc=new ClienteController();
-    ClienteVO cli=new ClienteVO();
+    UsuarioVO cli=new UsuarioVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setNombreCliente(request.getParameter("nombre"));
-    cli.setCedulaCliente(cedula);    
-    cli.setCorreoCliente(request.getParameter("correo"));
-    cli.setUsuarioCliente(request.getParameter("usuario"));
-    cli.setContrasenaCliente(request.getParameter("contrasena"));
-    cc.modificarPersona(cli);
+    cli.setCedulaUsuario(cedula);    
+    cli.setUsuarioUsuario(request.getParameter("usuario"));
+    cli.setNombreUsuario(request.getParameter("nombre"));
+    cli.setContrasenaUsuario(request.getParameter("contrasena"));
+    cli.setCorreoUsuario(request.getParameter("correo"));
+    cc.modificarUsuario(cli);
 %>
 <head>
-<title>Actualizar Cliente</title>
+<title>Page Redirection</title>
 </head>
 <body>
-    <h1>Cliente Actualizado!</h1>
+    <h1>Cliente modificado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

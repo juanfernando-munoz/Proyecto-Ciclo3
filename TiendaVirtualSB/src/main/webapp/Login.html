@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+   </head>	
+   <body>
+   <style type="text/css">
+		#submit {
+		 background-color: #a5a5a5;
+		 padding: .5em;
+		 -moz-border-radius: 5px;
+		 -webkit-border-radius: 5px;
+		 border-radius: 6px;
+		 color: white;
+		 font-family: 'Tahoma';
+		 size: 2;
+		 text-decoration: none;
+		 border: none;
+		 text-align: center;
+		 margin: 15px;
+		 margin-top: 0.1px;
+		 position: relative;
+		 left: 150px; 
+		}
+		#submit:hover {
+		 border: none;
+		 background: salmon;
+		 box-shadow: 0px 0px 1px #777;
+		}
+		.header {
+		  padding: 0.100px;
+		  height:50px;
+		  text-align: Left;
+		  background: #a5a5a5;
+		  color: white;
+		  font-size: 2;
+		  font-family: 'Tahoma';
+		  padding-left:10px; 
+		}		
+
+	</style>
+ 		<div class="header">
+			<p> Tienda Genérica - Ingreso</p>
+			</br>
+	  <form method = "POST">
+      <table  style="margin-top:10px; margin-left:50px;" border = "0"  align = "left" cellspacing = "5" cellpadding = "5">
+         <tr>
+            <td style="text-align:left;"> <font face = "Tahoma" size = "2" color = "#bebaba">Usuario</font></td>
+            <td><input type="text" name="Usuario" /></td>
+    				<td style="text-align:left;"> <font face = "Tahoma" size = "2" color = "#bebaba">Contraseñas</font></td>
+            <td><input type="password" name="contrasena"/></td>
+         </tr>            
+      </table>  
+      </br></br></br>
+      <div>
+      <p style="text-align:left;">
+      <a  href="MenuPrincipal.html" id="submit" class="button">Ingresar</a>
+      <a  href="PrimeraVezLogin.html" id="submit" class="button">Acceso por Primera Vez</a>
+      </div>
+   </form>
+   </body>	
+</html>

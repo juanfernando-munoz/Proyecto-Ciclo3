@@ -10,18 +10,14 @@
     ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setNombreCliente(request.getParameter("nombre"));
     cli.setCedulaCliente(cedula);    
-    cli.setCorreoCliente(request.getParameter("correo"));
-    cli.setUsuarioCliente(request.getParameter("usuario"));
-    cli.setContrasenaCliente(request.getParameter("contrasena"));
-    cc.modificarPersona(cli);
+    cc.consultarPersona(cli.getCedulaCliente());
 %>
 <head>
-<title>Actualizar Cliente</title>
+<title>Consultar Cliente</title>
 </head>
 <body>
-    <h1>Cliente Actualizado!</h1>
+    <h1>Informacion del Cliente:</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>
