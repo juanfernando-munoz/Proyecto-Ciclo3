@@ -1,0 +1,96 @@
+.submit {
+    background-color: #a5a5a5;
+    padding: .5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Tahoma';
+    size: 2;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    margin: 15px;
+    margin-top: 0.1px;
+    position: relative;
+    left: 150px; 
+}
+.submit:hover {
+    border: none;
+    background: salmon;
+    box-shadow: 0px 0px 1px #777;
+}
+.header {
+    padding: 0.1px;
+    text-align: Left;
+    background: #a5a5a5;
+    color: white;
+    font-size: 2;
+    font-family: 'Tahoma';
+    padding-left:10px; 
+}			
+.topnav {
+    background-color: white;
+    overflow: hidden;
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #a5a5a5;
+    border-bottom-width: thin;
+}
+.topnav a {
+    float: left;
+    color: #bebaba;
+    text-align: center;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Tahoma';
+}
+.topnav a:hover {
+    background-color: grey;
+    color: black;
+}
+.topnav a.active {
+    background-color: grey;
+    color: black;
+}
+#welcome {
+    padding: 0.1px;
+    text-align: Left;
+    color: grey;
+    font-size: 2;
+    font-family: 'Tahoma';
+    padding-left:10px; 
+}
+button{
+    text-align:left;
+}
+td{
+    text-align:left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #bebaba;
+    font-size: 13px;
+    padding: 5px;
+}
+table{
+    margin-top:10px; 
+    margin-left:50px;
+    border-spacing: 5px;
+}
+
+.b1{
+    background-color: #a5a5a5;
+    padding: .5em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Tahoma';
+    size: 2;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    margin: 15px;
+    margin-top: 0.1px;
+    left: 150px; 
+}
