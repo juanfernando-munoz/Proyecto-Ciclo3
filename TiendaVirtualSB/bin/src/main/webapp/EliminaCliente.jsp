@@ -7,38 +7,39 @@
 %>
 <html>
 <% 
-    ClienteController cc=new ClienteController();
-    UsuarioVO cli=new UsuarioVO();
+	ClienteController cc=new ClienteController();
+    ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
-    cli.setCedulaUsuario(cedula);    
-    cc.eliminarUsuario(cli);
+    cli.setCedulaCliente(cedula);
+    cc.eliminarCliente(cli);
 %>
 <head>
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>Usuario Eliminado!</h1>
+    <h1>Cliente eliminado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>
                 <%= request.getParameter("cedula")%>
             </p></li>
         <li><p>
+                <b>Direccion:</b>
+                <%= request.getParameter("direccion")%>
+            </p></li>
+        <li><p>
+                <b>Correo:</b>
+                <%= request.getParameter("email")%>
+            </p></li>
+        <li><p>
                 <b>Nombre:</b>
                 <%= request.getParameter("nombre")%>
             </p></li>
         <li><p>
-                <b>Correo:</b>
-                <%= request.getParameter("correo")%>
-            </p></li>
-        <li><p>
-                <b>Usuario:</b>
-                <%= request.getParameter("usuario")%>
-            </p></li>
-        <li><p>
-                <b>Contrasena:</b>
-                <%= request.getParameter("contrasena")%>
+                <b>Telefono:</b>
+                <%= request.getParameter("telefono")%>
             </p></li>
     </ul>
+
 </body>
 </html>

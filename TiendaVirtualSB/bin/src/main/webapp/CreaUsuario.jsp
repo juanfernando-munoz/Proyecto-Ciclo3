@@ -21,7 +21,7 @@
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>Usuario creado</h1>
+    <h1>Cliente creado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

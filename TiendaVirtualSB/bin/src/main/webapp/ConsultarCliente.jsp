@@ -42,7 +42,7 @@
             </p></li>
         <li><p>
                 <b>Telefono:</b>
-                <%= cli.getTelefonoCliente()%>
+                <%= cli.getTelefonoCliente(request.getParameter("telefono")%>
             </p></li>
     </ul>
 </body>

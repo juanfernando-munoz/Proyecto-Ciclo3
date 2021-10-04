@@ -7,43 +7,44 @@
 %>
 <html>
 <% 
-    ClienteController cc=new ClienteController();
+	ClienteController cc=new ClienteController();
     ClienteVO cli=new ClienteVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
     int telefono=Integer.parseInt(request.getParameter("telefono"));
     cli.setCedulaCliente(cedula);
-    cli.setDireccionCliente("direccion");
-    cli.setEmailCliente("correo");
-    cli.setNombreCliente("nombre");
+    cli.setDireccionCliente(request.getParameter("direccion"));
+    cli.setEmailCliente(request.getParameter("email"));
+    cli.setNombreCliente(request.getParameter("nombre"));
     cli.setTelefonoCliente(telefono);
-    cc.consultarCliente(cli.getCedulaCliente());
+    cc.registrarCliente(cli);
 %>
 <head>
-<title>Consultar Cliente</title>
+<title>Page Redirection</title>
 </head>
 <body>
-    <h1>Informacion del Cliente:</h1>
+    <h1>Cliente creado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>
-                <%= cli.getCedulaCliente() %>
+                <%= request.getParameter("cedula")%>
             </p></li>
         <li><p>
                 <b>Direccion:</b>
-                <%= cli.getDireccionCliente()%>
+                <%= request.getParameter("direccion")%>
             </p></li>
         <li><p>
                 <b>Correo:</b>
-                <%= cli.getEmailCliente()%>
+                <%= request.getParameter("email")%>
             </p></li>
         <li><p>
                 <b>Nombre:</b>
-                <%= cli.getNombreCliente()%>
+                <%= request.getParameter("nombre")%>
             </p></li>
         <li><p>
                 <b>Telefono:</b>
-                <%= cli.getTelefonoCliente()%>
+                <%= request.getParameter("telefono")%>
             </p></li>
     </ul>
+
 </body>
 </html>

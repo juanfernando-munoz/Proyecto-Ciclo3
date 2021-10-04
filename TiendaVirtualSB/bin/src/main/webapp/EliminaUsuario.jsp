@@ -11,17 +11,13 @@
     UsuarioVO cli=new UsuarioVO();
     int cedula=Integer.parseInt(request.getParameter("cedula"));
     cli.setCedulaUsuario(cedula);    
-    cli.setUsuarioUsuario(request.getParameter("usuario"));
-    cli.setNombreUsuario(request.getParameter("nombre"));
-    cli.setContrasenaUsuario(request.getParameter("contrasena"));
-    cli.setCorreoUsuario(request.getParameter("correo"));
-    cc.modificarUsuario(cli);
+    cc.eliminarUsuario(cli);
 %>
 <head>
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>Usuario modificado</h1>
+    <h1>Cliente modificado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

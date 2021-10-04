@@ -21,7 +21,7 @@
 <title>Page Redirection</title>
 </head>
 <body>
-    <h1>Usuario modificado</h1>
+    <h1>Cliente modificado</h1>
     <ul>
         <li><p>
                 <b>Cedula:</b>

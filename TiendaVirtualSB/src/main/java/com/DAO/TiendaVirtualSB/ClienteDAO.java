@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 import com.DTO.TiendaVirtualSB.ClienteVO;
+import com.DTO.TiendaVirtualSB.ProductosVO;
 import com.DTO.TiendaVirtualSB.ProveedorVO;
 import com.DTO.TiendaVirtualSB.UsuarioVO;
 
@@ -117,7 +118,12 @@ public class ClienteDAO
     Conexion conex = new Conexion();
     try {
         Statement estatuto = conex.getConnection().createStatement();
-        estatuto.executeUpdate("update usuarios set cedula_usuario='"+persona.getCedulaUsuario()+"', email_usuario ='" + persona.getCorreoUsuario()+"', nombre_usuario ='" + persona.getNombreUsuario()+"', contrasenaUsuario ='" + persona.getContrasenaUsuario()+"', usuarioUsuario ='" + persona.getUsuarioUsuario()+"' where cedula_usuario='" + persona.getCedulaUsuario()+"'");
+        estatuto.executeUpdate("update usuarios set cedula_usuario='"+persona.getCedulaUsuario()+
+        		"', email_usuario ='" + persona.getCorreoUsuario()+
+        		"', nombre_usuario ='" + persona.getNombreUsuario()+
+        		"', contrasenaUsuario ='" + persona.getContrasenaUsuario()+
+        		"', usuarioUsuario ='" + persona.getUsuarioUsuario()+
+        		"' where cedula_usuario='" + persona.getCedulaUsuario()+"'");
         estatuto.close();
         conex.desconectar();
     } catch (SQLException e) {
@@ -246,5 +252,22 @@ public ArrayList< ClienteVO> listaDePersonas() {
   }
   return miCliente;
  }
-
+public void InsertarCSV(ProductosVO persona) 
+{
+ Conexion conex= new Conexion();
+ try {
+  Statement estatuto = conex.getConnection().createStatement();
+  estatuto.executeUpdate("INSERT INTO productos VALUES ('"+persona.getCodigo_producto()+"', '"
+    +persona.getIvacompra()+"', '"+persona.getNitproveedor()+"', '"+persona.getNombre_producto()+"', '"+persona.getPrecio_compra()+persona.getPrecio_venta()+"')");
+  estatuto.close();
+  conex.desconectar();
+  
+ } catch (SQLException e) {
+ }
 }
+  
+
+   }
+
+
+

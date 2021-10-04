@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+		<link rel="stylesheet" href="styles.css">
+   		<meta charset="UTF-8">
+      	<title>Clientes</title>
+   </head>	
+   <body>
+ 		<div class="header">
+			<p> Tienda Genérica - Clientes</p>
+		</div>
+		<div class="topnav">
+			<a href="Usuarios.html">Usuarios</a>
+			<a class="active" href="Clientes.html">Clientes</a>
+			<a href="Proveedores.html">Proveedores</a>
+			<a href="Productos.html">Productos</a>
+			<a href="Ventas.html">Ventas</a>
+			<a href="Reportes.html">Reportes</a>
+		</div>
+		</br>
+		</br>
+		<form method = "POST" accion="ClienteController">
+			<table  align = "left">
+				<tr>
+					<td>Cedula</td>
+					<td><input type="text" name="cedula" /></td>
+					<td>Direccion</td>
+					<td><input type="text" name="direccion"/></td>
+				</tr>      
+				<tr>
+					<td>Email</td>
+					<td><input type="text" name="email"  /></td>
+					<td>Nombre</td>
+					<td><input type="text" name="nombre"/></td>
+				</tr>  
+				<tr>
+					<td>Telefono</td>
+					<td colspan="3"><input type="text" name="telefono"/></td>
+				</tr>         
+			</table>  
+      	</br></br></br></br></br></br></br>
+		</br>	
+		<button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarCliente.jsp" >Consultar</button>  
+		<button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaCliente.jsp" >Crear</button>
+		<button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaCliente.jsp">Actualizar</button>
+		<button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaCliente.jsp">Borrar</button>
+	</form>
+	</body>	
+</html>
