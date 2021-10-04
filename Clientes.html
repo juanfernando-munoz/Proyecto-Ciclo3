@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+		<link rel="stylesheet" href="styles.css">
+   		<meta charset="UTF-8">
+      	<title>Clientes</title>
+		<script src="codigo.js"></script>
+   </head>	
+   <body>
+ 		<div class="header">
+			<p> Tienda Genérica - Clientes</p>
+		</div>
+		<div class="topnav">
+			<a href="Usuarios.html">Usuarios</a>
+			<a class="active" href="Clientes.html">Clientes</a>
+			<a href="Proveedores.html">Proveedores</a>
+			<a href="Productos.html">Productos</a>
+			<a href="Ventas.html">Ventas</a>
+			<a href="Reportes.html">Reportes</a>
+		</div>
+		<br>
+		<br>
+		<div id="inicial">
+			<form method = "POST" accion="ClienteController" target="_blank">
+				<table>
+					<tr>
+						<td>Cedula</td>
+						<td><input type="text" onkeyup="escribir1()" id="cedula" name="cedula"/></td>
+						<td>Direccion</td>
+						<td><input type="text" onkeyup="escribir1()" id="direccion" name="direccion"/></td>
+					</tr>      
+					<tr>
+						<td>Email</td>
+						<td><input type="text" onkeyup="escribir1()" id="email" name="email"/></td>
+						<td>Nombre</td>
+						<td><input type="text" onkeyup="escribir1()" id="nombre" name="nombre"/></td>
+					</tr>  
+					<tr>
+						<td>Telefono</td>
+						<td colspan="3"><input onkeyup="escribir1()" id="telefono" type="text" name="telefono"/></td>
+					</tr>         
+				</table>   
+		      	</br>
+				</br>	
+				<button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarCliente.jsp" >Consultar</button>  
+				<button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaCliente.jsp">Crear</button>
+				<button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaCliente.jsp">Actualizar</button>
+				<button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaCliente.jsp">Borrar</button>
+			</form>
+		</div>
+		<div id="resultados">
+            <h2>Datos a enviar</h2>
+            <p id="txt1"></p>
+            <p id="txt2"></p>
+            <p id="txt3"></p>
+            <p id="txt4"></p>
+            <p id="txt5"></p>
+        </div>
+	</body>	
+</html>
