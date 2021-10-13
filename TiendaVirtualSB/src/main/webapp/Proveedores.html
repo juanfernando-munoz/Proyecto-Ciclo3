@@ -4,6 +4,7 @@
 		<link rel="stylesheet" href="styles.css">
     	<meta charset="UTF-8">
 		<title>Proveedores</title>
+		<script src="codigo.js"></script>
     </head>	
     <body>
 		<div class="header">
@@ -19,31 +20,41 @@
 		</div>
 		</br>
 		</br>
-		<form accion="ClienteController" method="POST">
-			<table align = "left">
-				<tr>
-					<td>NIT</td>
-					<td><input type="text" name="nit" /></td>
-					<td>Telefono</td>
-					<td><input type="text" name="telefono" /></td>
-				</tr>      
-				<tr>
-					<td>Nombre Proveedor</td>
-					<td><input type="text" name="nombre"  /></td>
-					<td>Ciudad</td>
-					<td><input type="text" name="ciudad" /></td>
-				</tr>  
-				<tr>
-					<td>Direccion</td>
-					<td colspan="3"><input type="text" name="direccion"  /></td>
-				</tr>        
-			</table>  
-			</br></br></br></br></br></br></br>
-			</br>
-			<button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarProveedor.jsp" >Consultar</button>  
-			<button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaProveedor.jsp" >Crear</button>
-			<button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaProveedor.jsp">Actualizar</button>
-			<button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaProveedor.jsp">Borrar</button>
-		</form>
+		<div id="inicial">
+			<form action="ClienteController" method="POST" target="_blank">
+				<table>
+					<tr>
+						<td>NIT</td>
+						<td><input type="text" onkeyup="escribir2()" id="nit" name="nit" /></td>
+						<td>Telefono</td>
+						<td><input type="text" onkeyup="escribir2()" id="telefono" name="telefono" /></td>
+					</tr>      
+					<tr>
+						<td>Nombre Proveedor</td>
+						<td><input type="text" onkeyup="escribir2()" id="nombre" name="nombre"  /></td>
+						<td>Ciudad</td>
+						<td><input type="text" onkeyup="escribir2()" id="ciudad" name="ciudad" /></td>
+					</tr>  
+					<tr>
+						<td>Dirección</td>
+						<td colspan="3"><input type="text" onkeyup="escribir2()" id="direccion" name="direccion"  /></td>
+					</tr>        
+				</table>  
+				<br>
+				<br>
+				<button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarProveedor.jsp" >Consultar</button>  
+				<button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaProveedor.jsp" >Crear</button>
+				<button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaProveedor.jsp">Actualizar</button>
+				<button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaProveedor.jsp">Borrar</button>
+			</form>
+		</div>
+		<div id="resultados">
+            <h2>Datos a enviar</h2>
+            <p id="txt1"></p>
+            <p id="txt2"></p>
+            <p id="txt3"></p>
+            <p id="txt4"></p>
+            <p id="txt5"></p>
+        </div>
 	</body>	
 </html>

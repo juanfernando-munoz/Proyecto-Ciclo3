@@ -4,6 +4,7 @@
 	    <link rel="stylesheet" href="styles.css">
 		<meta charset="UTF-8">
       	<title>Usuarios</title>
+		<script src="codigo.js"></script>
 	</head>	
 	<body>
 		<div class="header">
@@ -19,31 +20,41 @@
 		</div>
 		</br>
 		</br>
-		<form method = "POST" accion="ClienteController">
-			<table align = "left">
-				<tr>
-					<td>Cedula</td>
-					<td><input type="text" name="cedula" /></td>
-					<td>Usuario</td>
-					<td><input type="text" name="usuario"/></td>
-				</tr>      
-				<tr>
-					<td>Nombre Completo</td>
-					<td><input type="text" name="nombre"  /></td>
-					<td>Contraseña</td>
-					<td><input type="text" name="contrasena"/></td>
-				</tr>  
-				<tr>
-					<td>Correo Electronico</td>
-					<td colspan="3"><input type="text" name="correo"/></td>
-				</tr>         
-			</table>
-	        </br></br></br></br></br></br></br>
-			</br>
-	        <button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarUsuario.jsp" >Consultar</button>  
-	        <button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaUsuario.jsp" >Crear</button>
-	        <button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaUsuario.jsp">Actualizar</button>
-	        <button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaUsuario.jsp">Borrar</button>
-		</form> 
+		<div id="inicial">
+			<form method = "POST" accion="ClienteController" target="_blank">
+				<table>
+					<tr>
+						<td>Cedula</td>
+						<td><input type="text" onkeyup="escribir3()" id="cedula" name="cedula" /></td>
+						<td>Usuario</td>
+						<td><input type="text" id="usuario"  name="usuario"/></td>
+					</tr>      
+					<tr>
+						<td>Nombre Completo</td>
+						<td><input type="text" onkeyup="escribir3()" id="nombre" name="nombre"/></td>
+						<td>Contraseña</td>
+						<td><input type="text" onkeyup="escribir3()" id="contrasena" name="contrasena"/></td>
+					</tr>  
+					<tr>
+						<td>Correo Electronico</td>
+						<td colspan="3"><input type="text" onkeyup="escribir3()" id="correo" name="correo"/></td>
+					</tr>         
+				</table>
+				<br><br>
+				<button class="submit" type= "submit" name="accion" value="Consultar" formaction="ConsultarUsuario.jsp" >Consultar</button>  
+				<button class="submit" type= "submit" name="accion" value="Crear" formaction="CreaUsuario.jsp" >Crear</button>
+				<button class="submit" type= "submit" name="accion" value="Actualizar" formaction="ModificaUsuario.jsp">Actualizar</button>
+				<button class="submit" type= "submit" name="accion" value="Eliminar" formaction="EliminaUsuario.jsp">Borrar</button>
+			</form> 
+		</div>
+		<div id="resultados">
+            <h2>Datos a enviar</h2>
+            <p id="txt1"></p>
+            <p id="txt2"></p>
+            <p id="txt3"></p>
+            <p id="txt4"></p>
+            <p id="txt5"></p>
+        </div>
+
    </body>	
 </html>

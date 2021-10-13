@@ -9,10 +9,16 @@ import java.sql.*;
  */
 public class Conexion {
    /**Parametros de conexion*/
-   static String bd = "tienda";
+   static String bd = "bd142";
+   static String login = "admin";
+   static String password = "admin123";
+   static String url = "jdbc:mysql://tiendavirtualjh.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+bd;
+   /**
+   static String bd = "bd142";
    static String login = "root";
    static String password = "root";
-   static String url = "jdbc:mysql://localhost/"+bd;
+   static String url = "jdbc:mysql://localhost/"+bd;*/
+
 
    Connection connection = null;
 

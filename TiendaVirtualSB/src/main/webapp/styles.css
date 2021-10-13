@@ -1,3 +1,7 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .submit {
     background-color: #a5a5a5;
     padding: .5em;
@@ -5,7 +9,6 @@
     -webkit-border-radius: 5px;
     border-radius: 6px;
     color: white;
-    font-family: 'Tahoma';
     size: 2;
     text-decoration: none;
     border: none;
@@ -26,7 +29,6 @@
     background: #a5a5a5;
     color: white;
     font-size: 2;
-    font-family: 'Tahoma';
     padding-left:10px; 
 }			
 .topnav {
@@ -44,7 +46,6 @@
     padding: 10px 25px;
     text-decoration: none;
     font-size: 12px;
-    font-family: 'Tahoma';
 }
 .topnav a:hover {
     background-color: grey;
@@ -54,43 +55,34 @@
     background-color: grey;
     color: black;
 }
-#welcome {
-    padding: 0.1px;
-    text-align: Left;
-    color: grey;
-    font-size: 2;
-    font-family: 'Tahoma';
-    padding-left:10px; 
+
+table{
+    margin-top:10px; 
+    margin-left:50px;
 }
-button{
-    text-align:left;
-}
+
 td{
-    text-align:left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #bebaba;
     font-size: 13px;
     padding: 5px;
 }
-table{
-    margin-top:10px; 
-    margin-left:50px;
-    border-spacing: 5px;
+#inicial {
+    display: block;
+    width: 48%;
+    height: 200px;
+    float: left;
 }
-
-.b1{
+#resultados{
+    display: block;
+    width: 48%;
+    height: 250px;
+    float: right;
+    padding-left: 20px;
+    padding-bottom: 20px;
     background-color: #a5a5a5;
-    padding: .5em;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 6px;
-    color: white;
-    font-family: 'Tahoma';
-    size: 2;
-    text-decoration: none;
-    border: none;
-    text-align: center;
-    margin: 15px;
-    margin-top: 0.1px;
-    left: 150px; 
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    border: 0px solid #000000;
+    color: black;
 }

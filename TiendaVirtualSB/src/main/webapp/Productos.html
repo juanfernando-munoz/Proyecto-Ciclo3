@@ -83,7 +83,7 @@
 			<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     </head>	
     <body>
-    	<form method = "POST" accion="ClienteController">
+    	<form id="form1" method = "POST" accion="ClienteController">
    		<div class="header">
   			<p> Tienda Generica</p>
 		</div>
@@ -95,16 +95,10 @@
 			<a href="Ventas.html">Ventas</a>
 			<a href="Reportes.html">Reportes</a>
 		</div>
-		</br></br>
-      	<table  style="margin-top:10px; margin-left:50px; margin-right:10px" border = "0"  align = "left" cellspacing = "0" cellpadding = "5">
-         	<tr>
-				<td style="text-align:left;"> <font face = "Tahoma" size = "2" color = "#bebaba">Nombre del Archivo</font></td>
-				<td><div id="n_archivo"><input type="text" name="n_archivo" /></div></td>
-			</tr>
-        </table>  
-        <p style="left:150px"><label for="file" class="submit" type="file">Examinar</label> 
-        <input type="file" style="display:none;" id="file" name="file" accept=".csv"/>
-        <p><button class="submit1" type="submit" name="accion" value="Cargar">Cargar</button></p>
+		</br></br> 
+        <p style="left:200px"><label for="file" class="submit" type="file">Examinar</label> 
+        <input id="file" type="file" accept=".csv" style="display:none;"/>
+        <p><button class="submit1" type="submit" onclick ="subirArchivo()">Cargar</button></p>
 		<script>
 			$(document).ready(function() {
 				$('input[type="file"]').change(function(e) {
@@ -113,6 +107,65 @@
 		
 				});
 			});
+		</script>
+		<script>
+			function subirArchivo() {
+				try{
+					var csvFile = document.getElementById("file");
+					var input = csvFile.files[0];
+					var reader = new FileReader();
+					
+					reader.onload = function(e){
+						
+						var text = e.target.result;
+						var arrayLineas = text.split("\n");
+						var xhr = XMLHttpRequest();
+						
+						xhr.open("DELETE",
+								"http://localhost:8080/eliminartodoproducto", true);
+						xhr.send();
+						
+						for (var i=0; i < arrayLineas.length; i += 1){
+							var arraydatos = arrayLineas[i].split(",");
+							
+							if (arrayLineas[i] == ""){
+								continue;
+							}
+							
+							for (var j= 0; j < arraydatos.length; j += 1){
+								console.log(i + " " + j + "->" + arraydatos[j]);
+							}
+							
+							var formData = new FormData();
+							formData.append("codigo_producto", arraydatos[0]);
+							formData.append("ivacompra", arraydatos[1]);
+							formData.append("nitproveedor", arraydatos[2]);
+							formData.append("nombre_producto", arraydatos[3]);
+							formData.append("precio_compra", arraydatos[4]);
+							formData.append("precio_venta", arraydatos[5]);
+							var xhr = XMLHttpRequest();
+							xhr.open("POST",
+									"http://localhost:8080/registrarproducto");
+							
+							xhr.send(formData);
+						}
+						
+						var element = document.getElementById("error");
+						element.classList.add("visually-hidden");
+						var element2 = document.getElementById("correcto");
+						element2.classList.remove("visually-hidden");
+						
+						document.getElementById("file").value = "";
+					};
+					reader.readAsText(input);
+				} catch(error) {
+					var element = document.getElementById("error");
+					element.classList.remove("visually-hidden");
+					var element2 = document.getElementById("correcto");
+					element2.classList.add("visually-hidden");
+					document.getElementById("file").value = "";
+				}
+			}
 		</script>
 		</form>
    </body>	
