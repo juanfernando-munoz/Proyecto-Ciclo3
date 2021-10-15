@@ -27,8 +27,8 @@ public class ProductoDAO {
 			String sentencia = "INSERT INTO productos VALUES("
 					+ product.getCodigo_producto() + ","
 					+ product.getIvacompra() + ","
-					+ product.getNitproveedor() + ","
-					+ product.getNombre_producto() + ","
+					+ product.getNitproveedor() + ",'"
+					+ product.getNombre_producto() + "',"
 					+ product.getPrecio_compra() + ","
 					+ product.getPrecio_venta() + ""
 					+ ");";
